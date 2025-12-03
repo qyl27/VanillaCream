@@ -1,0 +1,252 @@
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'architectury-plugin' version '3.4-SNAPSHOT'
+    id 'dev.architectury.loom' version '1.13-SNAPSHOT'
+    id 'com.gradleup.shadow' version '9.2.+' apply false
+}
+
+base {
+    archivesName = "$rootProject.archive_base_name-common"
+}
+
+architectury {
+    common(project.enabled_platforms.split(','))
+}
+
+loom {
+    accessWidenerPath = file('src/main/resources/vanillacream.accesswidener')
+
+    runConfigs.configureEach {
+        ideConfigGenerated = false
+    }
+}
+
+dependencies {
+    // In order to use the @Environment and @EnvironmentInterface annotations from fabric loader.
+    modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
+
+    modApi group: 'games.moegirl.sinocraft', name: 'sinocore-common', version: rootProject.sinocore_version
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir file('src/generated/resources')
+        }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = project.base.archivesName.get()
+            from components.java
+        }
+    }
+}
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'maven-publish'
+    apply plugin: 'architectury-plugin'
+    apply plugin: 'dev.architectury.loom'
+
+    group = rootProject.maven_group
+    version = rootProject.mod_version
+
+    var release = 'true'.equalsIgnoreCase(System.getenv('MOD_RELEASE'))
+    if (!release) {
+        version += '-SNAPSHOT'
+    }
+
+    architectury {
+        minecraft = project.minecraft_version
+    }
+
+    loom {
+        silentMojangMappingsLicense()
+
+        // Write your interface injections in architectury.common.json
+        interfaceInjection {
+            enableDependencyInterfaceInjection = true
+        }
+    }
+
+    repositories {
+        maven {
+            name = 'ParchmentMC'
+            url = 'https://maven.parchmentmc.org'
+        }
+
+        maven {
+            name = 'Mod Menu'
+            url = 'https://maven.terraformersmc.com/releases'
+        }
+
+        maven {
+            name = 'NeoForged'
+            url = 'https://maven.neoforged.net/releases/'
+        }
+
+        maven {
+            name = 'Yuluo Maven'
+            url = 'https://maven.yuluo.dev/repository/maven-public/'
+        }
+
+        mavenCentral()
+    }
+
+    dependencies {
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+
+        mappings loom.layered() {
+            officialMojangMappings()
+            parchment("org.parchmentmc.data:parchment-${rootProject.parchment_minecraft_version}:${rootProject.parchment_version}@zip")
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+        options.release = 21
+    }
+
+    java {
+        withSourcesJar()
+    }
+
+    jar {
+        from('LICENSE') {
+            rename { "${it}_${project.archive_base_name}" }
+        }
+    }
+
+    publishing {
+        repositories {
+            mavenLocal()
+        }
+    }
+
+    var generateModMetadata = tasks.register('generateModMetadata', ProcessResources) {
+        var properties = [
+                mod_id                          : project.mod_id,
+                mod_version                     : project.mod_version,
+                mod_name                        : project.mod_name,
+                mod_description                 : project.mod_description,
+                mod_authors                     : project.mod_authors,
+                mod_credits                     : project.mod_credits,
+                mod_license                     : project.mod_license,
+                mod_homepage                    : project.mod_homepage,
+                mod_sources                     : project.mod_sources,
+                mod_issues_page                 : project.mod_issues_page,
+                maven_group                     : project.maven_group,
+                archive_base_name               : project.archive_base_name,
+
+                minecraft_version               : project.minecraft_version,
+
+                neoforge_loader_version         : project.neoforge_loader_version,
+                neoforge_version                : project.neoforge_version,
+                neoforge_minecraft_version_range: project.neoforge_minecraft_version_range,
+                neoforge_loader_version_range   : project.neoforge_loader_version_range,
+                neoforge_version_range          : project.neoforge_version_range,
+                neoforge_sinocore_version_range : project.neoforge_sinocore_version_range,
+
+                fabric_loader_version           : project.fabric_loader_version,
+                fabric_api_version              : project.fabric_api_version,
+                fabric_minecraft_version_range  : project.fabric_minecraft_version_range,
+                fabric_loader_version_range     : project.fabric_loader_version_range,
+                fabric_api_version_range        : project.fabric_api_version_range,
+                fabric_sinocore_version_range   : project.fabric_sinocore_version_range,
+        ]
+        inputs.properties properties
+        expand properties
+        from 'src/main/templates'
+        into 'build/generated/sources/mod-metadata'
+    }
+    sourceSets.main.resources.srcDir generateModMetadata
+    processResources.dependsOn generateModMetadata
+}
+
+subprojects {
+    apply plugin: 'com.gradleup.shadow'
+
+    base {
+        archivesName = "$rootProject.archive_base_name-${loom.getPlatform().get().id()}"
+    }
+
+    loom {
+        accessWidenerPath = project(':').loom.accessWidenerPath
+
+        runs {
+            client {
+                client()
+
+                runDir 'run/client'
+
+                // To support the Enhanced Class Redefinition in JBR.
+                vmArg '-XX:+IgnoreUnrecognizedVMOptions'
+                vmArg '-XX:+AllowEnhancedClassRedefinition'
+
+                // https://openjdk.org/jeps/400
+                property 'file.encoding', 'COMPAT'
+            }
+
+            server {
+                server()
+                runDir 'run/server'
+                vmArg '-XX:+IgnoreUnrecognizedVMOptions'
+                vmArg '-XX:+AllowEnhancedClassRedefinition'
+                property 'file.encoding', 'COMPAT'
+            }
+        }
+    }
+
+    configurations {
+        common {
+            canBeResolved = true
+            canBeConsumed = false
+        }
+
+        compileClasspath.extendsFrom common
+        runtimeClasspath.extendsFrom common
+        developmentFabric.extendsFrom common
+        developmentNeoForge.extendsFrom common
+
+        shadowBundle {
+            canBeResolved = true
+            canBeConsumed = false
+        }
+    }
+
+    dependencies {
+    }
+
+    shadowJar {
+        exclude 'architectury.common.json'
+        configurations = [project.configurations.shadowBundle]
+        archiveClassifier = 'dev-shadow'
+    }
+
+    remapJar {
+        input.set shadowJar.archiveFile
+    }
+
+    sourcesJar {
+        def commonSources = rootProject.sourcesJar
+        dependsOn commonSources
+        from commonSources.archiveFile.map { zipTree(it) }
+    }
+
+    shadow {
+        addShadowVariantIntoJavaComponent = false
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                artifactId = project.base.archivesName.get()
+                from components.java
+            }
+        }
+    }
+}

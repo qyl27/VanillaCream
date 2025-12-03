@@ -1,0 +1,32 @@
+architectury {
+    platformSetupLoomIde()
+    neoForge()
+}
+
+loom {
+    runs {
+        data {
+            data()
+
+            runDir 'run/data'
+
+            programArgs '--all', '--mod', "${project.mod_id}"
+            programArgs '--output', file('../src/generated/resources').absolutePath
+            programArgs '--existing', file('../src/main/resources').absolutePath
+        }
+    }
+}
+
+dependencies {
+    neoForge "net.neoforged:neoforge:${rootProject.neoforge_version}"
+
+    modApi group: 'games.moegirl.sinocraft', name: 'sinocore-neoforge', version: rootProject.sinocore_version
+
+    common(project(path: ':', configuration: 'namedElements')) { transitive false }
+    shadowBundle project(path: ':', configuration: 'transformProductionNeoForge')
+}
+
+remapJar {
+    // Remap aw to at.
+    atAccessWideners.add(loom.accessWidenerPath.get().asFile.name)
+}
