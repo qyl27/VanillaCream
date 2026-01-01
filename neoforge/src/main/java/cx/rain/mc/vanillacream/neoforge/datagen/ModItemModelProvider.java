@@ -9,7 +9,8 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import java.util.List;
 
 public class ModItemModelProvider extends AbstractAutoGenItemModelProvider {
-    public ModItemModelProvider(PackOutput output, String modId, ExistingFileHelper existingFileHelper, List<IRegistry<? extends Item>> autoGenRegistries) {
+    public ModItemModelProvider(PackOutput output, String modId, ExistingFileHelper existingFileHelper,
+                                List<IRegistry<? extends Item>> autoGenRegistries) {
         super(output, modId, existingFileHelper, autoGenRegistries);
     }
 
