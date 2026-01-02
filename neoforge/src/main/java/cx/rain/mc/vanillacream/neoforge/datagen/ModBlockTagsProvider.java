@@ -18,6 +18,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(ModTags.VANILLA_SMALL_FLOWERS).add(ModBlocks.ROSE.get(), ModBlocks.CYAN_ROSE.get(), ModBlocks.PAEONIA.get());
+        tag(ModTags.VANILLA_SMALL_FLOWERS_BLOCK).add(ModBlocks.ROSE.get(), ModBlocks.CYAN_ROSE.get(), ModBlocks.PAEONIA.get());
+        tag(ModTags.VANILLA_FLOWER_POTS_BLOCK).add(ModBlocks.POTTED_ROSE.get(), ModBlocks.POTTED_CYAN_ROSE.get(), ModBlocks.POTTED_PAEONIA.get());
     }
 }

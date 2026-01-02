@@ -2,6 +2,7 @@ package cx.rain.mc.vanillacream.neoforge.datagen.language;
 
 import cx.rain.mc.vanillacream.registries.ModBlocks;
 import cx.rain.mc.vanillacream.registries.ModCreativeModeTabs;
+import cx.rain.mc.vanillacream.registries.ModItems;
 import games.moegirl.sinocraft.sinocore.neoforge.api.datagen.AbstractLanguageProvider;
 import net.minecraft.data.PackOutput;
 
@@ -17,5 +18,6 @@ public class ModZhCnProvider extends AbstractLanguageProvider {
         addBlock(ModBlocks.ROSE, "玫瑰");
         addBlock(ModBlocks.CYAN_ROSE, "青色玫瑰");
         addBlock(ModBlocks.PAEONIA, "芍药");
+        addItem(ModItems.BAGUETTE, "法国长面包");
     }
 }

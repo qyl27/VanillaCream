@@ -7,7 +7,7 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
 
-    modApi group: 'games.moegirl.sinocraft', name: 'sinocore-neoforge', version: rootProject.sinocore_version
+    modApi group: 'games.moegirl.sinocraft', name: 'sinocore-fabric', version: rootProject.sinocore_version
 
     modRuntimeOnly "com.terraformersmc:modmenu:${rootProject.fabric_mod_menu_version}"
 

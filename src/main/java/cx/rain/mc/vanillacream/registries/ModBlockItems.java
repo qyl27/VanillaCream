@@ -12,7 +12,7 @@ import net.minecraft.world.item.Item;
 public class ModBlockItems {
     public static final IRegistry<Item> REGISTRY = RegistryManager.create(VanillaCreamMod.MOD_ID, Registries.ITEM);
 
-    public static final IRegRef<BlockItem> ROSE = REGISTRY.register("rose", () -> new BlockItem(ModBlocks.ROSE.get(), new Item.Properties().sino$tab(ModCreativeModeTabs.TAB, true).sino$tab(CreativeModeTabs.NATURAL_BLOCKS)));
+    public static final IRegRef<BlockItem> ROSE = REGISTRY.register("rose", () -> new BlockItem(ModBlocks.ROSE.get(), new Item.Properties().sino$tab(ModCreativeModeTabs.TAB).sino$tab(CreativeModeTabs.NATURAL_BLOCKS)));
     public static final IRegRef<BlockItem> CYAN_ROSE = REGISTRY.register("cyan_rose", () -> new BlockItem(ModBlocks.CYAN_ROSE.get(), new Item.Properties().sino$tab(ModCreativeModeTabs.TAB).sino$tab(CreativeModeTabs.NATURAL_BLOCKS)));
     public static final IRegRef<BlockItem> PAEONIA = REGISTRY.register("paeonia", () -> new BlockItem(ModBlocks.PAEONIA.get(), new Item.Properties().sino$tab(ModCreativeModeTabs.TAB).sino$tab(CreativeModeTabs.NATURAL_BLOCKS)));
 

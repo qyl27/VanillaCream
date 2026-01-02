@@ -1,6 +1,8 @@
 package cx.rain.mc.vanillacream.neoforge.datagen;
 
 import cx.rain.mc.vanillacream.VanillaCreamMod;
+import cx.rain.mc.vanillacream.neoforge.datagen.language.ModEnUsProvider;
+import cx.rain.mc.vanillacream.neoforge.datagen.language.ModZhCnProvider;
 import cx.rain.mc.vanillacream.registries.ModBlocks;
 import cx.rain.mc.vanillacream.registries.ModItems;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -22,10 +24,13 @@ public class DataGen {
         if (event.includeClient()) {
             event.addProvider(new ModBlockStateProvider(output, VanillaCreamMod.MOD_ID, existingFileHelper, List.of(ModBlocks.REGISTRY)));
             event.addProvider(new ModItemModelProvider(output, VanillaCreamMod.MOD_ID, existingFileHelper, List.of(ModItems.REGISTRY)));
+            event.addProvider(new ModZhCnProvider(output, VanillaCreamMod.MOD_ID, "zh_cn"));
+            event.addProvider(new ModEnUsProvider(output, VanillaCreamMod.MOD_ID, "en_us"));
         }
 
         if (event.includeServer()) {
             event.addProvider(new ModBlockTagsProvider(output, registries, VanillaCreamMod.MOD_ID, existingFileHelper));
+            event.addProvider(new ModRecipeProvider(output, registries));
         }
     }
 }

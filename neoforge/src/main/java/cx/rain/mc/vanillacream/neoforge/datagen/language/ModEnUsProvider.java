@@ -2,6 +2,7 @@ package cx.rain.mc.vanillacream.neoforge.datagen.language;
 
 import cx.rain.mc.vanillacream.registries.ModBlocks;
 import cx.rain.mc.vanillacream.registries.ModCreativeModeTabs;
+import cx.rain.mc.vanillacream.registries.ModItems;
 import games.moegirl.sinocraft.sinocore.neoforge.api.datagen.AbstractLanguageProvider;
 import net.minecraft.data.PackOutput;
 
@@ -17,5 +18,6 @@ public class ModEnUsProvider extends AbstractLanguageProvider {
         addBlock(ModBlocks.ROSE, "Rose");
         addBlock(ModBlocks.CYAN_ROSE, "Cyan Rose");
         addBlock(ModBlocks.PAEONIA, "Paeonia");
+        addItem(ModItems.BAGUETTE, "Baguette");
     }
 }

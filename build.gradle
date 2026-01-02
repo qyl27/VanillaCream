@@ -95,6 +95,7 @@ allprojects {
         }
 
         mavenCentral()
+        mavenLocal()
     }
 
     dependencies {

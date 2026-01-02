@@ -22,15 +22,15 @@ public class ModBlockStateProvider extends AbstractAutoGenBlockStateProvider {
 
     @Override
     protected void register() {
-        simpleBlock(ModBlocks.ROSE.get(), models().cross("rose", modLoc("block/rose")).renderType(RenderType.CUTOUT.name));
-        simpleBlock(ModBlocks.CYAN_ROSE.get(), models().cross("cyan_rose", modLoc("block/cyan_rose")).renderType(RenderType.CUTOUT.name));
-        simpleBlock(ModBlocks.PAEONIA.get(), models().cross("paeonia", modLoc("block/paeonia")).renderType(RenderType.CUTOUT.name));
+        simpleBlock(ModBlocks.ROSE.get(), models().cross("rose", modLoc("block/rose")).renderType(RenderType.cutout().name));
+        simpleBlock(ModBlocks.CYAN_ROSE.get(), models().cross("cyan_rose", modLoc("block/cyan_rose")).renderType(RenderType.cutout().name));
+        simpleBlock(ModBlocks.PAEONIA.get(), models().cross("paeonia", modLoc("block/paeonia")).renderType(RenderType.cutout().name));
         itemModels().singleTexture("rose", mcLoc(GENERATED), "layer0", modLoc("block/rose"));
         itemModels().singleTexture("cyan_rose", mcLoc(GENERATED), "layer0", modLoc("block/cyan_rose"));
         itemModels().singleTexture("paeonia", mcLoc(GENERATED), "layer0", modLoc("block/paeonia"));
 
-        simpleBlock(ModBlocks.POTTED_ROSE.get(), models().singleTexture("potted_rose", mcLoc("block/flower_pot_cross"), "plant", modLoc("block/rose")));
-        simpleBlock(ModBlocks.POTTED_CYAN_ROSE.get(), models().singleTexture("potted_cyan_rose", mcLoc("block/flower_pot_cross"), "plant", modLoc("block/cyan_rose")));
-        simpleBlock(ModBlocks.POTTED_PAEONIA.get(), models().singleTexture("potted_paeonia", mcLoc("block/flower_pot_cross"), "plant", modLoc("block/paeonia")));
+        simpleBlock(ModBlocks.POTTED_ROSE.get(), models().singleTexture("potted_rose", mcLoc("block/flower_pot_cross"), "plant", modLoc("block/rose")).renderType(RenderType.cutout().name));
+        simpleBlock(ModBlocks.POTTED_CYAN_ROSE.get(), models().singleTexture("potted_cyan_rose", mcLoc("block/flower_pot_cross"), "plant", modLoc("block/cyan_rose")).renderType(RenderType.cutout().name));
+        simpleBlock(ModBlocks.POTTED_PAEONIA.get(), models().singleTexture("potted_paeonia", mcLoc("block/flower_pot_cross"), "plant", modLoc("block/paeonia")).renderType(RenderType.cutout().name));
     }
 }
