@@ -14,12 +14,10 @@ import static cx.rain.mc.vanillacream.util.ResourceLocationHelper.modLoc;
 
 public class ModPlacedFeatures {
     public static final ResourceKey<PlacedFeature> FLOWER_ROSE = ResourceKey.create(Registries.PLACED_FEATURE, modLoc("flower_rose"));
-    public static final ResourceKey<PlacedFeature> FLOWER_CYAN_ROSE = ResourceKey.create(Registries.PLACED_FEATURE, modLoc("flower_cyan_rose"));
     public static final ResourceKey<PlacedFeature> FLOWER_PAEONIA = ResourceKey.create(Registries.PLACED_FEATURE, modLoc("flower_paeonia"));
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
         placedFlower(context, FLOWER_ROSE, ModConfiguredFeatures.FLOWER_ROSE);
-        placedFlower(context, FLOWER_CYAN_ROSE, ModConfiguredFeatures.FLOWER_CYAN_ROSE);
         placedFlower(context, FLOWER_PAEONIA, ModConfiguredFeatures.FLOWER_PAEONIA);
     }
 
@@ -30,7 +28,7 @@ public class ModPlacedFeatures {
     private static void placedFlower(BootstrapContext<PlacedFeature> context, ResourceKey<PlacedFeature> key, ResourceKey<ConfiguredFeature<?, ?>> feature) {
         var featureHolder = context.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(feature);
         placed(context, key, featureHolder,
-                RarityFilter.onAverageOnceEvery(2),
+                RarityFilter.onAverageOnceEvery(32),
                 InSquarePlacement.spread(),
                 PlacementUtils.HEIGHTMAP,
                 BiomeFilter.biome());

@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#vanillacream:has_rose",
+  "features": "vanillacream:flower_rose",
+  "step": "vegetal_decoration"
+}

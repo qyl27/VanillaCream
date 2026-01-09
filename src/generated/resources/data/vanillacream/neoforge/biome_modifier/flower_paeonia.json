@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#vanillacream:has_paeonia",
+  "features": "vanillacream:flower_paeonia",
+  "step": "vegetal_decoration"
+}

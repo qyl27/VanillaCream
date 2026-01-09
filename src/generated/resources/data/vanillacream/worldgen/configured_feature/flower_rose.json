@@ -6,10 +6,21 @@
         "type": "minecraft:simple_block",
         "config": {
           "to_place": {
-            "type": "minecraft:simple_state_provider",
-            "state": {
-              "Name": "vanillacream:rose"
-            }
+            "type": "minecraft:weighted_state_provider",
+            "entries": [
+              {
+                "data": {
+                  "Name": "vanillacream:rose"
+                },
+                "weight": 9
+              },
+              {
+                "data": {
+                  "Name": "vanillacream:cyan_rose"
+                },
+                "weight": 1
+              }
+            ]
           }
         }
       },

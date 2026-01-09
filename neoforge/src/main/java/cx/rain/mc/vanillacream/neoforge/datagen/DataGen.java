@@ -3,8 +3,8 @@ package cx.rain.mc.vanillacream.neoforge.datagen;
 import cx.rain.mc.vanillacream.VanillaCreamMod;
 import cx.rain.mc.vanillacream.neoforge.datagen.language.ModEnUsProvider;
 import cx.rain.mc.vanillacream.neoforge.datagen.language.ModZhCnProvider;
+import cx.rain.mc.vanillacream.neoforge.registry.ModDatapackEntriesNeoForge;
 import cx.rain.mc.vanillacream.registries.ModBlocks;
-import cx.rain.mc.vanillacream.registries.ModFeatures;
 import cx.rain.mc.vanillacream.registries.ModItems;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -32,9 +32,11 @@ public class DataGen {
         }
 
         if (event.includeServer()) {
-            event.addProvider(new ModBlockTagsProvider(output, registries, VanillaCreamMod.MOD_ID, existingFileHelper));
+            var blockTags = event.addProvider(new ModBlockTagsProvider(output, registries, VanillaCreamMod.MOD_ID, existingFileHelper));
+            event.addProvider(new ModItemTagsProvider(output, registries, blockTags.contentsGetter()));
+            event.addProvider(new ModBiomeTagsProvider(output, registries, VanillaCreamMod.MOD_ID, existingFileHelper));
             event.addProvider(new ModRecipeProvider(output, registries));
-            event.addProvider(new DatapackBuiltinEntriesProvider(output, registries, ModFeatures.BUILDER, Set.of(VanillaCreamMod.MOD_ID)));
+            event.addProvider(new DatapackBuiltinEntriesProvider(output, registries, ModDatapackEntriesNeoForge.BUILDER, Set.of(VanillaCreamMod.MOD_ID)));
         }
     }
 }

@@ -15,7 +15,7 @@ public class ModBlocks {
     public static final IRegistry<Block> REGISTRY = RegistryManager.create(VanillaCreamMod.MOD_ID, Registries.BLOCK);
 
     public static final IRegRef<FlowerBlock> ROSE = REGISTRY.register("rose", () ->
-            new FlowerBlock(MobEffects.DIG_SPEED, 5,
+            new FlowerBlock(MobEffects.DARKNESS, 3,
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.PLANT)
                             .noCollission()
@@ -25,7 +25,7 @@ public class ModBlocks {
                             .pushReaction(PushReaction.DESTROY))
     );
     public static final IRegRef<FlowerBlock> CYAN_ROSE = REGISTRY.register("cyan_rose", () ->
-            new FlowerBlock(MobEffects.DARKNESS, 11,
+            new FlowerBlock(MobEffects.NIGHT_VISION, 7,
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.PLANT)
                             .noCollission()
@@ -35,7 +35,7 @@ public class ModBlocks {
                             .pushReaction(PushReaction.DESTROY))
     );
     public static final IRegRef<FlowerBlock> PAEONIA = REGISTRY.register("paeonia", () ->
-            new FlowerBlock(MobEffects.DAMAGE_BOOST, 3,
+            new FlowerBlock(MobEffects.DIG_SPEED, 11,
                     BlockBehaviour.Properties.of()
                             .mapColor(MapColor.PLANT)
                             .noCollission()
