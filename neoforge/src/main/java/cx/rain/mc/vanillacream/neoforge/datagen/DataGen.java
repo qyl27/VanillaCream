@@ -4,12 +4,15 @@ import cx.rain.mc.vanillacream.VanillaCreamMod;
 import cx.rain.mc.vanillacream.neoforge.datagen.language.ModEnUsProvider;
 import cx.rain.mc.vanillacream.neoforge.datagen.language.ModZhCnProvider;
 import cx.rain.mc.vanillacream.registries.ModBlocks;
+import cx.rain.mc.vanillacream.registries.ModFeatures;
 import cx.rain.mc.vanillacream.registries.ModItems;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.common.data.DatapackBuiltinEntriesProvider;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import java.util.List;
+import java.util.Set;
 
 @EventBusSubscriber(modid = VanillaCreamMod.MOD_ID)
 public class DataGen {
@@ -31,6 +34,7 @@ public class DataGen {
         if (event.includeServer()) {
             event.addProvider(new ModBlockTagsProvider(output, registries, VanillaCreamMod.MOD_ID, existingFileHelper));
             event.addProvider(new ModRecipeProvider(output, registries));
+            event.addProvider(new DatapackBuiltinEntriesProvider(output, registries, ModFeatures.BUILDER, Set.of(VanillaCreamMod.MOD_ID)));
         }
     }
 }
