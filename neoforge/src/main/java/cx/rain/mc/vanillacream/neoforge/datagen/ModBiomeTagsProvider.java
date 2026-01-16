@@ -16,17 +16,18 @@ import java.util.concurrent.CompletableFuture;
 public class ModBiomeTagsProvider extends TagsProvider<Biome> {
     protected ModBiomeTagsProvider(PackOutput output,
                                    CompletableFuture<HolderLookup.Provider> registries,
-                                   String modId, @Nullable ExistingFileHelper existingFileHelper) {
+                                   String modId,
+                                   @Nullable ExistingFileHelper existingFileHelper) {
         super(output, Registries.BIOME, registries, modId, existingFileHelper);
     }
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(ModTags.HAS_ROSE_BIOME)
+        tag(ModTags.Biome.HAS_ROSE)
                 .add(Biomes.FOREST, Biomes.FLOWER_FOREST, Biomes.BIRCH_FOREST, Biomes.OLD_GROWTH_BIRCH_FOREST,
                         Biomes.PLAINS, Biomes.SUNFLOWER_PLAINS, Biomes.RIVER, Biomes.BEACH,
                         Biomes.SWAMP, Biomes.SPARSE_JUNGLE);
-        tag(ModTags.HAS_PAEONIA_BIOME)
+        tag(ModTags.Biome.HAS_PAEONIA)
                 .add(Biomes.WINDSWEPT_FOREST, Biomes.MEADOW, Biomes.OLD_GROWTH_SPRUCE_TAIGA, Biomes.OLD_GROWTH_PINE_TAIGA)
                 .addTag(BiomeTags.IS_SAVANNA);
     }

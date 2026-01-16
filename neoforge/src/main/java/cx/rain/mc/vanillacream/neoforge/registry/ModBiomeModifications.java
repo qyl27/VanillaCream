@@ -24,10 +24,10 @@ public class ModBiomeModifications {
         HolderGetter<Biome> biomes = context.lookup(Registries.BIOME);
         HolderGetter<PlacedFeature> placedFeatures = context.lookup(Registries.PLACED_FEATURE);
 
-        context.register(FLOWER_ROSE, new BiomeModifiers.AddFeaturesBiomeModifier(biomes.getOrThrow(ModTags.HAS_ROSE_BIOME),
+        context.register(FLOWER_ROSE, new BiomeModifiers.AddFeaturesBiomeModifier(biomes.getOrThrow(ModTags.Biome.HAS_ROSE),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.FLOWER_ROSE)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
-        context.register(FLOWER_PAEONIA, new BiomeModifiers.AddFeaturesBiomeModifier(biomes.getOrThrow(ModTags.HAS_PAEONIA_BIOME),
+        context.register(FLOWER_PAEONIA, new BiomeModifiers.AddFeaturesBiomeModifier(biomes.getOrThrow(ModTags.Biome.HAS_PAEONIA),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.FLOWER_PAEONIA)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
     }

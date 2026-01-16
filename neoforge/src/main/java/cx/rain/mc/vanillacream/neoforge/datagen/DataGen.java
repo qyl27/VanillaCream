@@ -33,8 +33,9 @@ public class DataGen {
 
         if (event.includeServer()) {
             var blockTags = event.addProvider(new ModBlockTagsProvider(output, registries, VanillaCreamMod.MOD_ID, existingFileHelper));
-            event.addProvider(new ModItemTagsProvider(output, registries, blockTags.contentsGetter()));
+            event.addProvider(new ModItemTagsProvider(output, registries, blockTags.contentsGetter(), VanillaCreamMod.MOD_ID, existingFileHelper));
             event.addProvider(new ModBiomeTagsProvider(output, registries, VanillaCreamMod.MOD_ID, existingFileHelper));
+            event.addProvider(new ModEntityTagsProvider(output, registries, VanillaCreamMod.MOD_ID, existingFileHelper));
             event.addProvider(new ModRecipeProvider(output, registries));
             event.addProvider(new DatapackBuiltinEntriesProvider(output, registries, ModDatapackEntriesNeoForge.BUILDER, Set.of(VanillaCreamMod.MOD_ID)));
         }

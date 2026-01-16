@@ -12,7 +12,7 @@ public class VanillaCreamModFabric implements ModInitializer {
     public void onInitialize() {
         VanillaCreamMod.init();
 
-        BiomeModifications.addFeature(biome -> biome.hasTag(ModTags.HAS_ROSE_BIOME), GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_ROSE);
-        BiomeModifications.addFeature(biome -> biome.hasTag(ModTags.HAS_PAEONIA_BIOME), GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_PAEONIA);
+        BiomeModifications.addFeature(biome -> biome.hasTag(ModTags.Biome.HAS_ROSE), GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_ROSE);
+        BiomeModifications.addFeature(biome -> biome.hasTag(ModTags.Biome.HAS_PAEONIA), GenerationStep.Decoration.VEGETAL_DECORATION, ModPlacedFeatures.FLOWER_PAEONIA);
     }
 }

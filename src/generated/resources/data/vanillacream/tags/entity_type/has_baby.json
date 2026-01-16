@@ -1,0 +1,15 @@
+{
+  "values": [
+    "#vanillacream:can_grow",
+    "minecraft:frog",
+    "minecraft:skeleton_horse",
+    "minecraft:zombie_horse",
+    "minecraft:zombie",
+    "minecraft:zombie_villager",
+    "minecraft:husk",
+    "minecraft:piglin",
+    "minecraft:piglin_brute",
+    "minecraft:zombified_piglin",
+    "minecraft:zoglin"
+  ]
+}
