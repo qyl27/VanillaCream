@@ -9,10 +9,12 @@ dependencies {
 
     modApi group: 'games.moegirl.sinocraft', name: 'sinocore-fabric', version: rootProject.sinocore_version
 
-    modRuntimeOnly "com.terraformersmc:modmenu:${rootProject.fabric_mod_menu_version}"
 
     common(project(path: ':', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':', configuration: 'transformProductionFabric')
+
+    modRuntimeOnly "com.terraformersmc:modmenu:${rootProject.fabric_mod_menu_version}"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rootProject.rei_version}"
 }
 
 remapJar {

@@ -94,6 +94,11 @@ allprojects {
             url = 'https://maven.yuluo.dev/repository/maven-public/'
         }
 
+        maven {
+            name = 'Shedaniel Maven'
+            url = 'https://maven.shedaniel.me/'
+        }
+
         mavenCentral()
         mavenLocal()
     }

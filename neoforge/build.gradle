@@ -24,6 +24,8 @@ dependencies {
 
     common(project(path: ':', configuration: 'namedElements')) { transitive false }
     shadowBundle project(path: ':', configuration: 'transformProductionNeoForge')
+
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rootProject.rei_version}"
 }
 
 remapJar {
