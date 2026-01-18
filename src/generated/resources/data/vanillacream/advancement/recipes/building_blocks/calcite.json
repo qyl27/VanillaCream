@@ -1,21 +1,21 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_basalt": {
+    "has_diorite": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:basalt"
+            "items": "minecraft:diorite"
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
     },
-    "has_stone": {
+    "has_dripstone_block": {
       "conditions": {
         "items": [
           {
-            "items": "minecraft:stone"
+            "items": "minecraft:dripstone_block"
           }
         ]
       },
@@ -23,7 +23,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:deepslate"
+        "recipe": "vanillacream:calcite"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,13 +31,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_stone",
-      "has_basalt"
+      "has_diorite",
+      "has_dripstone_block"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:deepslate"
+      "vanillacream:calcite"
     ]
   }
 }

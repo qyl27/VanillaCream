@@ -1,16 +1,6 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_andesite": {
-      "conditions": {
-        "items": [
-          {
-            "items": "minecraft:andesite"
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
-    },
     "has_basalt": {
       "conditions": {
         "items": [
@@ -21,9 +11,19 @@
       },
       "trigger": "minecraft:inventory_changed"
     },
+    "has_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:stone"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:tuff"
+        "recipe": "vanillacream:blackstone"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -31,13 +31,13 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_andesite",
+      "has_stone",
       "has_basalt"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:tuff"
+      "vanillacream:blackstone"
     ]
   }
 }
