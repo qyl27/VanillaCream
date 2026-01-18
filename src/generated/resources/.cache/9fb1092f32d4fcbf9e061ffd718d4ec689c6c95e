@@ -1,3 +1,11 @@
-// 1.21.1	2026-01-02T10:18:20.2975045	Recipes
+// 1.21.1	2026-01-18T20:23:44.9150645	Recipes
+dc7fa3602f43f409796fa7e4912f73be2d4b95b6 data/minecraft/advancement/recipes/building_blocks/blackstone.json
+e6b67b1930f17465f887e2773515342c9de59a6a data/minecraft/advancement/recipes/building_blocks/calcite.json
+af77b001a09a92ec6af84e86e792035f291936f6 data/minecraft/advancement/recipes/building_blocks/deepslate.json
+93db7ca7c369392c7d52077026b227e61e08ca70 data/minecraft/advancement/recipes/building_blocks/tuff.json
+95089073e0b515073d6db66170bd869f08f97a68 data/minecraft/recipe/blackstone.json
+eaf8b0b89160fe8c37e45974d59fec4d66895675 data/minecraft/recipe/calcite.json
+49e12bf033c6e53cad29b0d6e35e03df4db2b4a4 data/minecraft/recipe/deepslate.json
+3409442ed7c4d205585728817639791dacc9cf5b data/minecraft/recipe/tuff.json
 de1d5fcdb00387339ca67a892254f88fd6be6bf0 data/vanillacream/advancement/recipes/food/baguette.json
 98ae6aaa4cf405ef17ef44078038ec381fe9daa3 data/vanillacream/recipe/baguette.json

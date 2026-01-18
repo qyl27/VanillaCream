@@ -3,10 +3,7 @@ package cx.rain.mc.vanillacream.neoforge.datagen;
 import cx.rain.mc.vanillacream.registries.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 
 import java.util.concurrent.CompletableFuture;
@@ -24,6 +21,34 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("W  ")
                 .define('W', Items.WHEAT)
                 .unlockedBy("has_wheat", has(Items.WHEAT))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.CALCITE, 2)
+                .requires(Items.DIORITE)
+                .requires(Items.DRIPSTONE_BLOCK)
+                .unlockedBy("has_diorite", has(Items.DIORITE))
+                .unlockedBy("has_dripstone_block", has(Items.DRIPSTONE_BLOCK))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.TUFF, 2)
+                .requires(Items.ANDESITE)
+                .requires(Items.BASALT)
+                .unlockedBy("has_andesite", has(Items.ANDESITE))
+                .unlockedBy("has_basalt", has(Items.BASALT))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.DEEPSLATE, 2)
+                .requires(Items.STONE)
+                .requires(Items.BASALT)
+                .unlockedBy("has_stone", has(Items.STONE))
+                .unlockedBy("has_basalt", has(Items.BASALT))
+                .save(recipeOutput);
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.BLACKSTONE, 2)
+                .requires(Items.DEEPSLATE)
+                .requires(Items.BASALT)
+                .unlockedBy("has_stone", has(Items.STONE))
+                .unlockedBy("has_basalt", has(Items.BASALT))
                 .save(recipeOutput);
     }
 }

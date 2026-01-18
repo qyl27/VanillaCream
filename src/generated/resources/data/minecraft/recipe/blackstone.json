@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate"
+    },
+    {
+      "item": "minecraft:basalt"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "id": "minecraft:blackstone"
+  }
+}
