@@ -1,16 +1,21 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "building",
-  "ingredients": [
-    {
-      "item": "minecraft:deepslate"
+  "key": {
+    "D": {
+      "item": "minecraft:black_dye"
     },
-    {
+    "S": {
       "item": "minecraft:basalt"
     }
+  },
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
   ],
   "result": {
-    "count": 2,
+    "count": 8,
     "id": "minecraft:blackstone"
   }
 }

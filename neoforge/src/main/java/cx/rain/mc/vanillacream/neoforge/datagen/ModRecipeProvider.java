@@ -46,11 +46,14 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_basalt", has(Items.BASALT))
                 .save(recipeOutput, modLoc("deepslate"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.BLACKSTONE, 2)
-                .requires(Items.DEEPSLATE)
-                .requires(Items.BASALT)
-                .unlockedBy("has_stone", has(Items.STONE))
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.BLACKSTONE, 8)
+                .pattern("SSS")
+                .pattern("SDS")
+                .pattern("SSS")
+                .define('S', Items.BASALT)
+                .define('D', Items.BLACK_DYE)
                 .unlockedBy("has_basalt", has(Items.BASALT))
+                .unlockedBy("has_black_dye", has(Items.BLACK_DYE))
                 .save(recipeOutput, modLoc("blackstone"));
     }
 }
