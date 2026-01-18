@@ -28,10 +28,10 @@ public class ModEntityTagsProvider extends IntrinsicHolderTagsProvider<EntityTyp
                         EntityType.CAT, EntityType.CHICKEN, EntityType.COW, EntityType.DOLPHIN,
                         EntityType.DONKEY, EntityType.FOX, EntityType.GOAT, EntityType.HOGLIN,
                         EntityType.HORSE, EntityType.MOOSHROOM, EntityType.MULE, EntityType.OCELOT,
-                        EntityType.PANDA, EntityType.PARROT, EntityType.PIG, EntityType.POLAR_BEAR,
-                        EntityType.RABBIT, EntityType.SHEEP, EntityType.LLAMA, EntityType.OCELOT,
-                        EntityType.SNIFFER, EntityType.STRIDER, EntityType.TRADER_LLAMA, EntityType.TURTLE,
-                        EntityType.VILLAGER, EntityType.WOLF);
+                        EntityType.PANDA, EntityType.PIG, EntityType.POLAR_BEAR, EntityType.RABBIT,
+                        EntityType.SHEEP, EntityType.LLAMA, EntityType.OCELOT, EntityType.SNIFFER,
+                        EntityType.STRIDER, EntityType.TRADER_LLAMA, EntityType.TURTLE, EntityType.VILLAGER,
+                        EntityType.WOLF);
 
         tag(ModTags.Entity.HAS_BABY)
                 .addTag(ModTags.Entity.CAN_GROW)
