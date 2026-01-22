@@ -1,5 +1,6 @@
 package cx.rain.mc.vanillacream.neoforge.datagen;
 
+import cx.rain.mc.vanillacream.registries.ModBlockItems;
 import cx.rain.mc.vanillacream.registries.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -17,6 +18,9 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildRecipes(RecipeOutput recipeOutput, HolderLookup.Provider holderLookup) {
+
+        // region Baguette
+
         ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ModItems.BAGUETTE.get())
                 .pattern("  W")
                 .pattern(" W ")
@@ -24,6 +28,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .define('W', Items.WHEAT)
                 .unlockedBy("has_wheat", has(Items.WHEAT))
                 .save(recipeOutput);
+
+        // endregion
+
+
+        // region Craftable stones
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.CALCITE, 2)
                 .requires(Items.DIORITE)
@@ -55,5 +64,30 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_basalt", has(Items.BASALT))
                 .unlockedBy("has_black_dye", has(Items.BLACK_DYE))
                 .save(recipeOutput, modLoc("blackstone"));
+
+        // endregion
+
+
+        // region Jack o'Lanterns
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlockItems.REDSTONE_JACK_O_LANTERN.get())
+                .pattern("C")
+                .pattern("T")
+                .define('C', Items.CARVED_PUMPKIN)
+                .define('T', Items.REDSTONE_TORCH)
+                .unlockedBy("has_carved_pumpkin", has(Items.CARVED_PUMPKIN))
+                .unlockedBy("has_redstone_torch", has(Items.REDSTONE_TORCH))
+                .save(recipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, ModBlockItems.SOUL_JACK_O_LANTERN.get())
+                .pattern("C")
+                .pattern("T")
+                .define('C', Items.CARVED_PUMPKIN)
+                .define('T', Items.SOUL_TORCH)
+                .unlockedBy("has_carved_pumpkin", has(Items.CARVED_PUMPKIN))
+                .unlockedBy("has_soul_torch", has(Items.SOUL_TORCH))
+                .save(recipeOutput);
+
+        // endregion
     }
 }

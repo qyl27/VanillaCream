@@ -18,6 +18,8 @@ public class ModEnUsProvider extends AbstractLanguageProvider {
         addBlock(ModBlocks.ROSE, "Rose");
         addBlock(ModBlocks.CYAN_ROSE, "Cyan Rose");
         addBlock(ModBlocks.PAEONIA, "Paeonia");
+        addBlock(ModBlocks.REDSTONE_JACK_O_LANTERN, "Redstone Jack o'Lantern");
+        addBlock(ModBlocks.SOUL_JACK_O_LANTERN, "Soul Jack o'Lantern");
         addItem(ModItems.BAGUETTE, "Baguette");
     }
 }

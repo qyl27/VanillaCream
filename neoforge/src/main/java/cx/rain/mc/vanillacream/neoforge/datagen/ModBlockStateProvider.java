@@ -28,6 +28,10 @@ public class ModBlockStateProvider extends AbstractAutoGenBlockStateProvider {
         itemModels().singleTexture("rose", mcLoc(GENERATED), "layer0", modLoc("block/rose"));
         itemModels().singleTexture("cyan_rose", mcLoc(GENERATED), "layer0", modLoc("block/cyan_rose"));
         itemModels().singleTexture("paeonia", mcLoc(GENERATED), "layer0", modLoc("block/paeonia"));
+        horizontalBlock(ModBlocks.REDSTONE_JACK_O_LANTERN.get(), models().orientable("redstone_jack_o_lantern", mcLoc("block/pumpkin_side"), modLoc("block/redstone_jack_o_lantern"), mcLoc("block/pumpkin_top")));
+        horizontalBlock(ModBlocks.SOUL_JACK_O_LANTERN.get(), models().orientable("soul_jack_o_lantern", mcLoc("block/pumpkin_side"), modLoc("block/soul_jack_o_lantern"), mcLoc("block/pumpkin_top")));
+        simpleBlockItem(ModBlocks.REDSTONE_JACK_O_LANTERN.get(), models().getExistingFile(modLoc("block/redstone_jack_o_lantern")));
+        simpleBlockItem(ModBlocks.SOUL_JACK_O_LANTERN.get(), models().getExistingFile(modLoc("block/soul_jack_o_lantern")));
 
         simpleBlock(ModBlocks.POTTED_ROSE.get(), models().singleTexture("potted_rose", mcLoc("block/flower_pot_cross"), "plant", modLoc("block/rose")).renderType(RenderType.cutout().name));
         simpleBlock(ModBlocks.POTTED_CYAN_ROSE.get(), models().singleTexture("potted_cyan_rose", mcLoc("block/flower_pot_cross"), "plant", modLoc("block/cyan_rose")).renderType(RenderType.cutout().name));

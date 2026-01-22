@@ -32,6 +32,9 @@ public class ModEntityTagsProvider extends IntrinsicHolderTagsProvider<EntityTyp
                         EntityType.SHEEP, EntityType.LLAMA, EntityType.OCELOT, EntityType.SNIFFER,
                         EntityType.STRIDER, EntityType.TRADER_LLAMA, EntityType.TURTLE, EntityType.VILLAGER,
                         EntityType.WOLF);
+        // Todo: You're in 1.21.2
+//        tag(ModTags.Entity.CAN_GROW)
+//                .add(EntityType.SQUID, EntityType.GLOW_SQUID);
 
         tag(ModTags.Entity.HAS_BABY)
                 .addTag(ModTags.Entity.CAN_GROW)

@@ -18,6 +18,8 @@ public class ModZhCnProvider extends AbstractLanguageProvider {
         addBlock(ModBlocks.ROSE, "玫瑰");
         addBlock(ModBlocks.CYAN_ROSE, "青色玫瑰");
         addBlock(ModBlocks.PAEONIA, "芍药");
+        addBlock(ModBlocks.REDSTONE_JACK_O_LANTERN, "红石南瓜灯");
+        addBlock(ModBlocks.SOUL_JACK_O_LANTERN, "灵魂南瓜灯");
         addItem(ModItems.BAGUETTE, "法国长面包");
     }
 }

@@ -45,6 +45,37 @@ public class ModBlocks {
                             .pushReaction(PushReaction.DESTROY))
     );
 
+    public static final IRegRef<Block> REDSTONE_JACK_O_LANTERN = REGISTRY.register("redstone_jack_o_lantern", () -> new CarvedPumpkinBlock(
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_ORANGE)
+                    .strength(1.0F)
+                    .sound(SoundType.WOOD)
+                    .lightLevel(state -> 8)
+                    .isValidSpawn(Blocks::always)
+                    .pushReaction(PushReaction.DESTROY)
+    ));
+
+    public static final IRegRef<Block> SOUL_JACK_O_LANTERN = REGISTRY.register("soul_jack_o_lantern", () -> new CarvedPumpkinBlock(
+            BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.COLOR_ORANGE)
+                    .strength(1.0F)
+                    .sound(SoundType.WOOD)
+                    .lightLevel(state -> 10)
+                    .isValidSpawn(Blocks::always)
+                    .pushReaction(PushReaction.DESTROY)
+    ));
+
+    // Todo: You're in 1.21.9
+//    public static final IRegRef<Block> COPPER_JACK_O_LANTERN = REGISTRY.register("copper_jack_o_lantern", () -> new CarvedPumpkinBlock(
+//            BlockBehaviour.Properties.of()
+//                    .mapColor(MapColor.COLOR_ORANGE)
+//                    .strength(1.0F)
+//                    .sound(SoundType.WOOD)
+//                    .lightLevel(state -> 15)
+//                    .isValidSpawn(Blocks::always)
+//                    .pushReaction(PushReaction.DESTROY)
+//    ));
+
     public static final IRegRef<Block> POTTED_ROSE = REGISTRY.register("potted_rose", () -> Blocks.flowerPot(ROSE.get()));
     public static final IRegRef<Block> POTTED_CYAN_ROSE = REGISTRY.register("potted_cyan_rose", () -> Blocks.flowerPot(CYAN_ROSE.get()));
     public static final IRegRef<Block> POTTED_PAEONIA = REGISTRY.register("potted_paeonia", () -> Blocks.flowerPot(PAEONIA.get()));
