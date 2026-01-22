@@ -4,6 +4,7 @@ plugins {
     id 'architectury-plugin' version '3.4-SNAPSHOT'
     id 'dev.architectury.loom' version '1.13-SNAPSHOT'
     id 'com.gradleup.shadow' version '9.2.+' apply false
+    id 'me.shedaniel.unified-publishing' version '0.1.+' apply false
 }
 
 base {
@@ -130,6 +131,23 @@ allprojects {
     publishing {
         repositories {
             mavenLocal()
+
+            var mavenUser = System.getenv('MOD_MAVEN_USER')
+            var mavenPass = System.getenv('MOD_MAVEN_PASS')
+            if (mavenUser && mavenPass) {
+                maven {
+                    name = 'YuluoMaven'
+
+                    var releaseUrl = 'https://maven.yuluo.dev/repository/maven-releases/'
+                    var snapshotUrl = 'https://maven.yuluo.dev/repository/maven-snapshots/'
+                    url = release ? releaseUrl : snapshotUrl
+
+                    credentials {
+                        username mavenUser
+                        password mavenPass
+                    }
+                }
+            }
         }
     }
 
