@@ -1,9 +1,6 @@
 package cx.rain.mc.vanillacream;
 
-import cx.rain.mc.vanillacream.registries.ModBlocks;
-import cx.rain.mc.vanillacream.registries.ModBlockItems;
-import cx.rain.mc.vanillacream.registries.ModCreativeModeTabs;
-import cx.rain.mc.vanillacream.registries.ModItems;
+import cx.rain.mc.vanillacream.registries.*;
 
 public class VanillaCreamMod {
     public static final String MOD_ID = "vanillacream";
@@ -13,6 +10,7 @@ public class VanillaCreamMod {
         ModBlockItems.register();
         ModItems.register();
         ModCreativeModeTabs.register();
+        ModEvents.register();
     }
 
     public static void initClient() {

@@ -1,6 +1,7 @@
 package cx.rain.mc.vanillacream.registries;
 
 import cx.rain.mc.vanillacream.VanillaCreamMod;
+import cx.rain.mc.vanillacream.block.RedstonePumpkinLanternBlock;
 import games.moegirl.sinocraft.sinocore.api.registry.IRegRef;
 import games.moegirl.sinocraft.sinocore.api.registry.IRegistry;
 import games.moegirl.sinocraft.sinocore.api.registry.RegistryManager;
@@ -45,7 +46,7 @@ public class ModBlocks {
                             .pushReaction(PushReaction.DESTROY))
     );
 
-    public static final IRegRef<Block> REDSTONE_JACK_O_LANTERN = REGISTRY.register("redstone_jack_o_lantern", () -> new CarvedPumpkinBlock(
+    public static final IRegRef<Block> REDSTONE_JACK_O_LANTERN = REGISTRY.register("redstone_jack_o_lantern", () -> new RedstonePumpkinLanternBlock(
             BlockBehaviour.Properties.of()
                     .mapColor(MapColor.COLOR_ORANGE)
                     .strength(1.0F)
@@ -60,7 +61,7 @@ public class ModBlocks {
                     .mapColor(MapColor.COLOR_ORANGE)
                     .strength(1.0F)
                     .sound(SoundType.WOOD)
-                    .lightLevel(state -> 10)
+                    .lightLevel(state -> 11)
                     .isValidSpawn(Blocks::always)
                     .pushReaction(PushReaction.DESTROY)
     ));
