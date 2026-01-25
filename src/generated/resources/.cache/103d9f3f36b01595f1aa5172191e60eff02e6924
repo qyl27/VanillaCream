@@ -1,7 +1,7 @@
-// 1.21.1	2026-01-09T16:40:53.7471152	Registries
+// 1.21.1	2026-01-25T12:31:55.0455073	Registries
 7628108da9fa49a4ff7126aaa19e658574f7a0d1 data/vanillacream/neoforge/biome_modifier/flower_paeonia.json
 c0a5e80194f5ed9e87da20159bf9e9cb904b8c85 data/vanillacream/neoforge/biome_modifier/flower_rose.json
-e4055d875dfed1a9e692b8db974b5da4613b9f93 data/vanillacream/worldgen/configured_feature/flower_paeonia.json
-d8656e6b6ee37dcf50bf47b92b6589e3f170b5b5 data/vanillacream/worldgen/configured_feature/flower_rose.json
+fa22a4f0de490d3118dd610baaa9b27a3ea5674f data/vanillacream/worldgen/configured_feature/flower_paeonia.json
+86337d758ea494fecf443c61b80fa00d3ec56e21 data/vanillacream/worldgen/configured_feature/flower_rose.json
 c7e0039e7dbca169bd4d6041d722628e4fac71b9 data/vanillacream/worldgen/placed_feature/flower_paeonia.json
 ff7568184157fe6eab044d041ec888019837dd08 data/vanillacream/worldgen/placed_feature/flower_rose.json

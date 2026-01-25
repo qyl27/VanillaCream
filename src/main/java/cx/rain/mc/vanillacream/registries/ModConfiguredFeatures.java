@@ -29,7 +29,7 @@ public class ModConfiguredFeatures {
                 SimpleWeightedRandomList.<BlockState>builder()
                         .add(ModBlocks.ROSE.get().defaultBlockState(), 9)
                         .add(ModBlocks.CYAN_ROSE.get().defaultBlockState(), 1)
-        ), 16));
-        FeatureUtils.register(context, FLOWER_PAEONIA, Feature.FLOWER, grassPatch(BlockStateProvider.simple(ModBlocks.PAEONIA.get()), 24));
+        ), 24));
+        FeatureUtils.register(context, FLOWER_PAEONIA, Feature.FLOWER, grassPatch(BlockStateProvider.simple(ModBlocks.PAEONIA.get()), 32));
     }
 }
