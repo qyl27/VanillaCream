@@ -30,6 +30,7 @@ dependencies {
     shadowBundle project(path: ':', configuration: 'transformProductionNeoForge')
 
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-neoforge:${rootProject.rei_version}"
+    modRuntimeOnly "vazkii.patchouli:Patchouli:${rootProject.patchouli_version}-NEOFORGE"
 }
 
 remapJar {

@@ -100,6 +100,11 @@ allprojects {
             url = 'https://maven.shedaniel.me/'
         }
 
+        maven {
+            name = 'Vazkii mods'
+            url = 'https://maven.blamejared.com'
+        }
+
         mavenCentral()
         mavenLocal()
     }

@@ -19,6 +19,7 @@ dependencies {
 
     modRuntimeOnly "com.terraformersmc:modmenu:${rootProject.fabric_mod_menu_version}"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rootProject.rei_version}"
+    modRuntimeOnly "vazkii.patchouli:Patchouli:${rootProject.patchouli_version}-FABRIC"
 }
 
 remapJar {
